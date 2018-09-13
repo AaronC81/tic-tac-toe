@@ -127,6 +127,9 @@ io.on("connection", socket => {
         // Set the board to this player
         gameState.board[row][col] = gameState.whoseTurn;
 
+        // Set the winner
+        gameState.winner = winner(gameState.board);
+
         // If there is no winner still, change to the next player
         if (gameState.winner == null) {
             gameState.whoseTurn = (gameState.whoseTurn == "X" ? "O" : "X");
